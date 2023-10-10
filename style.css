@@ -5,13 +5,15 @@ main{
     border: 1px solid black;
    padding: 30px;
     margin: 1px;
-    width: 30px;
     border-radius: 300px;
     cursor: pointer;
+    width: 100%;
+    aspect-ratio: 1/1;
 }
 .jatekTer{
    
-    width: 100px;
+   width: 100%;
+   max-width: 260px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: auto;
