@@ -10,6 +10,7 @@ class Model {
   }
   felKapcsol(id) {
     this.#lista[id] = true;
+    this.setSzomszed(id);
   }
   setSzin(id, szin) {
     $(`#${id}`).css("background-color", szin);
@@ -57,6 +58,12 @@ class Model {
   }
   getMeret(){
     return this.#meret;
+  }
+  setLista(ertek){
+    for (let index = 0; index < this.#meret; index++) {
+        this.#lista[index] = ertek;
+        
+    }
   }
 }
 export default Model;

@@ -1,3 +1,6 @@
+main{
+    text-align: center;
+}
 .jatekTer>div{
     border: 1px solid black;
    padding: 30px;
@@ -7,8 +10,12 @@
     cursor: pointer;
 }
 .jatekTer{
-    margin: auto;
+   
     width: 100px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    margin: auto;
+}
+.btn{
+    margin: 10px;
 }
