@@ -1,4 +1,4 @@
-import Model from "../model/model.js";
+import Model from "../model/Model.js";
 import LampaElem from "../view/LampaElem.js";
 import UjJatek from "../view/UjJatek.js";
 
@@ -7,24 +7,28 @@ class Controller {
     this.MODEL = new Model();
     let gombElem = $(".gombok");
     this.UJATEK = new UjJatek(gombElem);
+    let listaMeret = this.MODEL.getMeret();
+
+    $(window).on("UjJatek", () => {
+      for (let index = 0; index < listaMeret; index++) {
+        this.MODEL.setSzin(index, "white");
+      }
+    });
+
     let szuloElem = $(".jatekTer");
-    for (let index = 0; index < this.MODEL.getMeret(); index++) {
+    for (let index = 0; index < listaMeret; index++) {
       this.Lampa = new LampaElem(szuloElem, index);
     }
-  
 
     $(window).on("kapcsol", (event) => {
-        
-        let lista = this.MODEL.getList();
+      let lista = this.MODEL.getList();
 
+      if (lista[event.detail] == false) {
+        this.MODEL.felKapcsol(event.detail);
+      } else {
+        this.MODEL.leKapcsol(event.detail);
+      }
 
-        if(lista[event.detail] == false){
-            this.MODEL.felKapcsol(event.detail);
-        }
-        else{
-            this.MODEL.leKapcsol(event.detail);
-        }
-      
       this.MODEL.setSzomszed(event.detail);
 
       for (let index = 0; index < lista.length; index++) {
